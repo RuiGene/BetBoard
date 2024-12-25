@@ -3,14 +3,18 @@ import sqlite3
 connection = sqlite3.connect('bets.db')
 cursor_obj = connection.cursor()
 
-# Creating table
-table = """ CREATE TABLE IF NOT EXISTS BETS (
+# Dropping the table if it exists
+cursor_obj.execute("DROP TABLE IF EXISTS BETS")
+
+# Creating the table
+table = """ CREATE TABLE BETS (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             Date DATE NOT NULL,
             Units INT NOT NULL,
             Description VARCHAR(255) DEFAULT 'None',
             Multiplier INT NOT NULL,
-            Outcome BOOLEAN
+            Outcome BOOLEAN,
+            Profit INT DEFAULT NULL
         ); """
 
 cursor_obj.execute(table)
