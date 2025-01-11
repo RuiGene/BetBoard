@@ -18,16 +18,14 @@ outcome = st.selectbox("Outcome of Bet:", ("Won", "Lost"))
 
 if st.button("Add Bet"):
     profit = calculate_profit(units, multiplier, outcome)
-    st.text(profit)
-    st.stop()
     outcome_boolean = True if outcome == "Won" else False
     try:
         cursor_obj.execute(
             """
-                INSERT INTO BETS (Date, Units, Description, Multiplier, Outcome)
-                VALUES (?, ?, ?, ?, ?)
+                INSERT INTO BETS (Date, Units, Description, Multiplier, Outcome, Profit)
+                VALUES (?, ?, ?, ?, ?, ?)
             """,
-            (date_input, units, description, multiplier, outcome_boolean)
+            (date_input, units, description, multiplier, outcome_boolean, profit)
         )
         connection.commit()
         st.success("Bet added successfully")
