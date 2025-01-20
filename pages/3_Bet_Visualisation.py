@@ -26,3 +26,9 @@ plt.xticks(rotation=45)
 plt.tight_layout()
 
 st.pyplot(plt)
+
+# Visualisations to add
+# Monthly/weekly profit loss
+# Win Rate Over Time: A moving average or line graph showing your success rate over time. You can calculate this as (wins / total bets) within a time window.
+# outcome distribution: A pie chart or bar chart of the outcomes (win, lose, push). It gives a snapshot of your overall betting success.
+# Multiplier Distribution: A histogram of multipliers used. It shows the spread of low-risk vs. high-risk bets.
